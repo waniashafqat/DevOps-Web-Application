@@ -61,15 +61,15 @@ Please visit our fully operational live website to experience real-time interact
 
 ## Badges
 
-![Docker](https://img.shields.io/badge/docker-container-blue)
-![Jenkins](https://img.shields.io/badge/jenkins-CI/CD-blue)
-![Prometheus](https://img.shields.io/badge/prometheus-monitoring-red)
-![Grafana](https://img.shields.io/badge/grafana-analytics-orange)
-![Fluentd](https://img.shields.io/badge/fluentd-logging-blue)
-![Nginx](https://img.shields.io/badge/nginx-webserver-green)
-![MySQL](https://img.shields.io/badge/mysql-database-lightgrey)
-![AWS](https://img.shields.io/badge/aws-cloud-orange)
-![Azure](https://img.shields.io/badge/azure-cloud-blue)
+[![Docker](https://img.shields.io/badge/docker-container-blue)](https://www.docker.com/)
+[![Jenkins](https://img.shields.io/badge/jenkins-CI/CD-blue)](https://www.jenkins.io/)
+[![Prometheus](https://img.shields.io/badge/prometheus-monitoring-red)](https://prometheus.io/)
+[![Grafana](https://img.shields.io/badge/grafana-analytics-orange)](https://grafana.com/)
+[![Fluentd](https://img.shields.io/badge/fluentd-logging-blue)](https://www.fluentd.org/)
+[![Nginx](https://img.shields.io/badge/nginx-webserver-green)](https://www.nginx.com/)
+[![MySQL](https://img.shields.io/badge/mysql-database-lightgrey)](https://www.mysql.com/)
+[![AWS](https://img.shields.io/badge/aws-cloud-orange)](https://aws.amazon.com/)
+[![Azure](https://img.shields.io/badge/azure-cloud-blue)](https://azure.microsoft.com/)
 
 ## Contributing
 
