@@ -14,7 +14,7 @@
         .footer { background-color: #61a5c2; color: white; padding: 10px 0; text-align: center; }
         .form-section { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px; }
         .submit-btn { background-color: #9a8c98; color: white; }
-        .devops-image { width: 80%; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+        .devops-image { width: 100%; height: auto; margin-bottom: 20px; }
         .alert-box { display: none; margin-top: 20px; }
     </style>
 </head>
@@ -93,49 +93,42 @@
     <p>&copy; 2023 DevOps Interactive Dashboard | Made by Wania Shafqat and Hassan Ahmed Khan</p>
 </div>
 
-<!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#dataForm').submit(function(event) {
-            event.preventDefault();
-            var userData = $('#userData').val();
-            var devOpsFeature = $('#devOpsFeature').val();
-            var agreeCheck = $('#agreeCheck').is(':checked');
-            var alertBox = $('#alertBox');
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataForm').submit(function(event) {
+                event.preventDefault();
+                var userData = $('#userData').val();
+                var devOpsFeature = $('#devOpsFeature').val();
+                var agreeCheck = $('#agreeCheck').is(':checked');
+                var alertBox = $('#alertBox');
+                alertBox.removeClass('alert-success alert-warning').hide();
 
-            if (userData === '') {
-                alertBox.removeClass('alert-success').addClass('alert-warning');
-                alertBox.html('Please enter data.').fadeIn();
-            } else if (!agreeCheck) {
-                alertBox.removeClass('alert-success').addClass('alert-warning');
-                alertBox.html('Please agree to the terms and conditions.').fadeIn();
-            } else {
-                $.ajax({
-                    url: '/submit',
-                    type: 'POST',
-                    data: { userData: userData, devOpsFeature: devOpsFeature },
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            alertBox.removeClass('alert-warning').addClass('alert-success');
-                            alertBox.html(response.message).fadeIn();
-                        } else {
-                            alertBox.removeClass('alert-success').addClass('alert-warning');
-                            alertBox.html(response.message).fadeIn();
+                if (userData === '') {
+                    alertBox.addClass('alert-warning').html('Please enter data.').fadeIn();
+                } else if (!agreeCheck) {
+                    alertBox.addClass('alert-warning').html('Please agree to the terms and conditions.').fadeIn();
+                } else {
+                    $.ajax({
+                        url: '/submit',
+                        type: 'POST',
+                        data: { userData: userData, devOpsFeature: devOpsFeature },
+                        success: function(response) {
+                            console.log(response);
+                            if (response.status === 'success') {
+                                alertBox.removeClass('alert-warning').addClass('alert-success').html(response.message).fadeIn();
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.log("Error: " + error);
+                            alertBox.addClass('alert-warning').html('An error occurred.').fadeIn();
                         }
-                    },
-                    error: function() {
-                        alertBox.removeClass('alert-success').addClass('alert-warning');
-                        alertBox.html('An error occurred.').fadeIn();
-                    }
-                });
-            }
+                    });
+                }
+            });
         });
-    });
-</script>
-
-
+    </script>
 </body>
 </html>

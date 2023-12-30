@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import logging
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///devops_data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dbuser:yourpassword@terraform-20231230183411087700000001.c348g0womtbc.ap-southeast-2.rds.amazonaws.com/mydatabase'
+                                    
 db = SQLAlchemy(app)
 
 class DevOpsData(db.Model):
@@ -21,6 +23,7 @@ def index():
 def submit():
     user_data = request.form.get('userData')
     devops_feature = request.form.get('devOpsFeature')
+    print("Received data:", user_data, devops_feature)
 
     if user_data:
         new_entry = DevOpsData(data=user_data, feature=devops_feature)
@@ -31,9 +34,10 @@ def submit():
     else:
         return jsonify({"status": "error", "message": "Please enter data."})
 
-
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()
+        try:
+            db.create_all()
+        except Exception as e:
+            logging.error("Error connecting to the database: %s", str(e))
     app.run(debug=True)
-
