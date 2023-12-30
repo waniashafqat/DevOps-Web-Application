@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Interactive Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body { background-color: #e9ecef; }
+        .navbar-brand { font-weight: bold; color: #61a5c2; }
+        .header { background-color: #468faf; color: white; padding: 20px 0; text-align: center; }
+        .footer { background-color: #61a5c2; color: white; padding: 10px 0; text-align: center; }
+        .form-section { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .submit-btn { background-color: #9a8c98; color: white; }
+        .devops-image { width: 80%; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+        .alert-box { display: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">DevOps Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    DevOps Features
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">CI/CD</a>
+                    <a class="dropdown-item" href="#">Monitoring</a>
+                    <a class="dropdown-item" href="#">Automated Testing</a>
+                    <a class="dropdown-item" href="#">Continuous Integration (CI)</a>
+                    <a class="dropdown-item" href="#">Continuous Deployment (CD)</a>
+                    <a class="dropdown-item" href="#">Infrastructure as Code (IaC)</a>
+                    <a class="dropdown-item" href="#">Collaboration between Development and Operations</a>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Header -->
+<div class="header">
+    <h1>Welcome to the DevOps Interactive Dashboard</h1>
+    <p>Explore and interact with DevOps practices</p>
+</div>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <img src="static\devops_diagram.png" class="devops-image" alt="DevOps Diagram">
+    <!-- User Input Form -->
+    <div class="form-section">
+        <h3>Submit Your DevOps Data</h3>
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="userData">Enter Data:</label>
+                <input type="text" class="form-control" id="userData" placeholder="Enter your data">
+            </div>
+            <div class="form-group">
+                <label for="devOpsFeature">Select DevOps Feature:</label>
+                <select class="form-control" id="devOpsFeature">
+                    <option>CI/CD</option>
+                    <option>Monitoring</option>
+                    <option>Automated Testing</option>
+                    <option>Continuous Integration (CI)</option>
+                    <option>Continuous Deployment (CD)</option>
+                    <option>Infrastructure as Code (IaC)</option>
+                    <option>Collaboration between Development and Operations</option>
+                </select>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="agreeCheck">
+                <label class="form-check-label" for="agreeCheck">I agree to the terms and conditions</label>
+            </div>
+            <button type="submit" class="btn submit-btn mt-3">Submit</button>
+        </form>
+        <!-- Alert Box -->
+        <div class="alert alert-warning alert-box" id="alertBox"></div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2023 DevOps Interactive Dashboard | Made by Wania Shafqat and Hassan Ahmed Khan</p>
+</div>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataForm').submit(function(event) {
+            event.preventDefault();
+            var userData = $('#userData').val();
+            var devOpsFeature = $('#devOpsFeature').val();
+            var agreeCheck = $('#agreeCheck').is(':checked');
+            var alertBox = $('#alertBox');
+
+            if (userData === '') {
+                alertBox.removeClass('alert-success').addClass('alert-warning');
+                alertBox.html('Please enter data.').fadeIn();
+            } else if (!agreeCheck) {
+                alertBox.removeClass('alert-success').addClass('alert-warning');
+                alertBox.html('Please agree to the terms and conditions.').fadeIn();
+            } else {
+                $.ajax({
+                    url: '/submit',
+                    type: 'POST',
+                    data: { userData: userData, devOpsFeature: devOpsFeature },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alertBox.removeClass('alert-warning').addClass('alert-success');
+                            alertBox.html(response.message).fadeIn();
+                        } else {
+                            alertBox.removeClass('alert-success').addClass('alert-warning');
+                            alertBox.html(response.message).fadeIn();
+                        }
+                    },
+                    error: function() {
+                        alertBox.removeClass('alert-success').addClass('alert-warning');
+                        alertBox.html('An error occurred.').fadeIn();
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
