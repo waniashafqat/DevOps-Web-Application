@@ -6,6 +6,23 @@ Welcome to our DevOps Web Application project, for the course Software Project M
 
 The DevOps Web Application is a platform that epitomizes modern software engineering methodologies. Developed as part of the Software Project Management course at the Institute of Space Technology (IST), this application is an exemplar of how DevOps practices can be seamlessly integrated into the lifecycle of a software project.
 
+## 📋 Table of Contents
+
+- [Key Features](#gear-key-features)
+- [Environment Setup](#wrench-environment-setup)
+- [Tools and Technologies](#hammer_and_wrench-tools-and-technologies)
+- [CI/CD Pipeline](#test_tube-cicd-pipeline)
+- [Automated Testing](#white_check_mark-automated-testing)
+- [Monitoring and Security](#closed_lock_with_key-monitoring-and-security)
+- [Documentation](#memo-documentation)
+- [Feedback Loop](#arrows_clockwise-feedback-loop)
+- [Team Collaboration](#busts_in_silhouette-team-collaboration)
+- [Live Website](#satellite-live-website)
+- [Badges](#badges)
+- [Contributing](#contributing)
+- [Get Involved](#star2-get-involved)
+- [Achievements](#trophy-achievements)
+
 ## :gear: Key Features
 
 - **Continuous Integration (CI)**: Every commit triggers an automated build, ensuring that integration is a breeze.
