@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Interactive Dashboard</title>
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS and star rating-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- CSS -->
     <style>
         body { background-color: #e9ecef; }
         .navbar-brand { font-weight: bold; color: #61a5c2; }
@@ -16,6 +17,9 @@
         .submit-btn { background-color: #9a8c98; color: white; }
         .devops-image { width: 100%; height: auto; margin-bottom: 20px; }
         .alert-box { display: none; margin-top: 20px; }
+        .unchecked { color: #e4e5e9; }
+        .checked { color: #ffc107; }
+        .star-rating { cursor: pointer; }
     </style>
 </head>
 <body>
@@ -77,14 +81,56 @@
                     <option>Collaboration between Development and Operations</option>
                 </select>
             </div>
+
+            <!-- Agreement Checkbox -->
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="agreeCheck">
                 <label class="form-check-label" for="agreeCheck">I agree to the terms and conditions</label>
             </div>
+
+            <!-- Submit Button -->
             <button type="submit" class="btn submit-btn mt-3">Submit</button>
         </form>
+
         <!-- Alert Box -->
         <div class="alert alert-warning alert-box" id="alertBox"></div>
+
+    <!-- Feedback Form Section -->
+    <div class="form-section">
+        <h3>User Feedback</h3>
+        <form id="feedbackForm">
+            <!-- Star Rating -->
+            <div class="form-group">
+                <label>Star Rating:</label>
+                <div id="starRating" class="star-rating">
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                </div>
+                <input type="hidden" id="userRating" name="userRating" value="0">
+            </div>
+
+            <!-- Feedback Text Area -->
+            <div class="form-group">
+                <label for="userFeedback">Your Feedback:</label>
+                <textarea class="form-control" id="userFeedback" rows="3" placeholder="Enter your feedback"></textarea>
+            </div>
+
+            <!-- Agreement Checkbox -->
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="feedbackAgreeCheck">
+                <label class="form-check-label" for="feedbackAgreeCheck">I agree to the terms and conditions</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn submit-btn mt-3">Submit Feedback</button>
+        </form>
+
+        <!-- Alert Box for Feedback -->
+        <div class="alert alert-warning alert-box" id="feedbackAlertBox"></div>
+
     </div>
 </div>
 
@@ -96,8 +142,42 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
+    <script>  
         $(document).ready(function() {
+            // Star rating logic
+            $('#starRating').on('click', '.fa-star', function() {
+                var index = $(this).index();
+                $('#userRating').val(index+1);
+                $('.fa-star').addClass('unchecked').slice(0, index+1).removeClass('unchecked').addClass('checked');
+            });
+
+            // Feedback form submission logic
+            $('#feedbackForm').submit(function(event) {
+                event.preventDefault();
+                var userFeedback = $('#userFeedback').val();
+                var userRating = $('#userRating').val();
+                var agreeCheck = $('#feedbackAgreeCheck').is(':checked');
+                var feedbackAlertBox = $('#feedbackAlertBox');
+                feedbackAlertBox.removeClass('alert-success alert-warning').hide();
+
+                if (!userRating || userRating == "0") {
+                    feedbackAlertBox.addClass('alert-warning').html('Please give a star rating.').fadeIn();
+                    return; 
+                }
+
+                if (userFeedback === '') {
+                    feedbackAlertBox.addClass('alert-warning').html('Please enter your feedback.').fadeIn();
+                    return;
+                } else if (!agreeCheck) {
+                    feedbackAlertBox.addClass('alert-warning').html('Please agree to the terms and conditions.').fadeIn();
+                    return; 
+                } else {
+                    console.log("User feedback submitted: ", userFeedback, " with rating: ", userRating);
+                    feedbackAlertBox.addClass('alert-success').html('Thank you for your feedback!').fadeIn();
+                }
+            });
+
+            // Feedback form submission logic
             $('#dataForm').submit(function(event) {
                 event.preventDefault();
                 var userData = $('#userData').val();
@@ -125,6 +205,7 @@
                             console.log("Error: " + error);
                             alertBox.addClass('alert-warning').html('An error occurred.').fadeIn();
                         }
+                        
                     });
                 }
             });
