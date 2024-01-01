@@ -62,7 +62,7 @@ Prometheus is used for monitoring the application's performance, while SonarQube
 
 ## :memo: Documentation
 
-Comprehensive [documentation](Documentation) is available covering our deployment pipeline and troubleshooting steps.
+Comprehensive [documentation](Documentation.pdf) is available covering our deployment pipeline and troubleshooting steps.
 
 ## :arrows_clockwise: Feedback Loop
 
