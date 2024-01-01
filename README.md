@@ -6,6 +6,9 @@ Welcome to the DevOps Web Application project, a practical implementation of Dev
 
 This application is a hands-on demonstration of DevOps methodologies, focusing on automation, continuous integration, and effective collaboration between development and operations.
 
+![image](https://github.com/waniashafqat/DevOps-Web-Application/assets/73712563/ff4765e8-27e4-4bf1-9f72-1685e0f52a70)
+![image](https://github.com/waniashafqat/DevOps-Web-Application/assets/73712563/17f81e5f-f87b-4dce-8b6f-9abbf0ac7a81)
+
 ## 📋 Table of Contents
 
 - [Environment Setup](#wrench-environment-setup)
@@ -28,7 +31,7 @@ To set up your local environment for this project, you need to install the follo
 - Python 3.12.1
 - Flask 3.0.0
 - MySQL for database management
-- Additional Python libraries as listed in `requirements.txt`
+- Additional Python libraries as listed in [requirements.txt](requirements.txt)
 
 Follow these steps to set up:
 
@@ -59,7 +62,7 @@ Prometheus is used for monitoring the application's performance, while SonarQube
 
 ## :memo: Documentation
 
-Comprehensive documentation is available covering our deployment pipeline and troubleshooting steps.
+Comprehensive [documentation](Documentation) is available covering our deployment pipeline and troubleshooting steps.
 
 ## :arrows_clockwise: Feedback Loop
 
@@ -67,7 +70,7 @@ Feedback from users and monitoring insights are used to continuously improve the
 
 ## :busts_in_silhouette: Team Collaboration
 
-Our project uses Jira for sprint planning and task management, ensuring efficient tracking of the development process.
+Our project uses [Jira](https://wania-shafqat.atlassian.net/browse/DEVOPS) for sprint planning and task management, ensuring efficient tracking of the development process.
 
 ## :satellite: Live Website
 
@@ -75,7 +78,7 @@ Check out our live website hosted on 000webhost for real-time interaction and te
 
 ## Contributing
 
-We welcome contributions! Please refer to `CONTRIBUTING.md` for guidelines on how to make contributions.
+We welcome contributions! Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to make contributions.
 
 ## :star2: Get Involved!
 
