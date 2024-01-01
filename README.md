@@ -1,14 +1,13 @@
 # DevOps Web Application :computer: :rocket:
 
-Welcome to our DevOps Web Application project, for the course Software Project Management. This project embodies the spirit of DevOps, blending development and operations seamlessly through automation and collaboration.
+Welcome to the DevOps Web Application project, a practical implementation of DevOps practices for the Software Project Management course at the Institute of Space Technology (IST).
 
 ## :sparkles: Project Overview
 
-The DevOps Web Application is a platform that epitomizes modern software engineering methodologies. Developed as part of the Software Project Management course at the Institute of Space Technology (IST), this application is an exemplar of how DevOps practices can be seamlessly integrated into the lifecycle of a software project.
+This application is a hands-on demonstration of DevOps methodologies, focusing on automation, continuous integration, and effective collaboration between development and operations.
 
 ## 📋 Table of Contents
 
-- [Key Features](#gear-key-features)
 - [Environment Setup](#wrench-environment-setup)
 - [Tools and Technologies](#hammer_and_wrench-tools-and-technologies)
 - [CI/CD Pipeline](#test_tube-cicd-pipeline)
@@ -18,47 +17,45 @@ The DevOps Web Application is a platform that epitomizes modern software enginee
 - [Feedback Loop](#arrows_clockwise-feedback-loop)
 - [Team Collaboration](#busts_in_silhouette-team-collaboration)
 - [Live Website](#satellite-live-website)
-- [Badges](#badges)
 - [Contributing](#contributing)
 - [Get Involved](#star2-get-involved)
-- [Achievements](#trophy-achievements)
-
-## :gear: Key Features
-
-- **Continuous Integration (CI)**: Every commit triggers an automated build, ensuring that integration is a breeze.
-- **Continuous Deployment (CD)**: Seamless and automated deployment processes make releases a non-event.
-- **Infrastructure as Code (IaC)**: Our infrastructure is defined in code, making it as easy to handle as our application code.
-- **Collaborative Environment**: Leveraging Version Control (Git) and collaboration tools to foster a cooperative working environment.
-- **Automated Testing**: A comprehensive suite ensures our application stands tall against the tides of change.
-- **Monitoring and Logging**:Employing Prometheus for real-time monitoring of application performance.
-- **Security Scanning**: Integrating SonarQube for continuous security scanning within the CI/CD pipeline.
+- [Badges](#badges)
 
 ## :wrench: Environment Setup
 
-The project is built using a stack of technologies pivotal for a DevOps-oriented workflow, including Docker for containerization, Jenkins for continuous integration, and Git for version control.
+To set up your local environment for this project, you need to install the following:
+
+- Python 3.12.1
+- Flask 3.0.0
+- MySQL for database management
+- Additional Python libraries as listed in `requirements.txt`
+
+Follow these steps to set up:
+
+1. Clone the repository: `git clone https://github.com/waniashafqat/DevOps-Web-Application.git`
+2. Navigate to the project directory: `cd DevOps-Web-Application`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Run the application: `python app.py`
 
 ## :hammer_and_wrench: Tools and Technologies
 
-- **Version Control**: Git
-- **CI/CD**: Jenkins
-- **IaC**: Terraform
-- **Communication**: Slack, Microsoft Teams
-- **Monitoring**: Prometheus
-- **Security**: SonarQube
+- **Python** and **Flask** for backend development
+- **HTML, CSS, JavaScript** for frontend
+- **MySQL** for database management
+- **Prometheus** for monitoring
+- **SonarQube** for continuous security scanning
 
 ## :test_tube: CI/CD Pipeline
 
-![CI/CD Pipeline](https://via.placeholder.com/150)
-
-Our CI/CD pipeline is engineered to facilitate automated builds and deployments, incorporating multiple phases such as testing and security scanning, to ensure the integrity and quality of our application.
+Our CI/CD pipeline, orchestrated through GitHub Actions, ensures continuous integration and deployment of our application.
 
 ## :white_check_mark: Automated Testing
 
-Automated tests are a cornerstone of our quality assurance process. We employ a range of testing techniques to ensure application reliability.
+We use automated testing frameworks like pytest to ensure the reliability and quality of our application.
 
 ## :closed_lock_with_key: Monitoring and Security
 
-We monitor application performance and security continuously, ensuring high availability and identifying vulnerabilities swiftly.
+Prometheus is used for monitoring the application's performance, while SonarQube ensures continuous security scanning within the CI/CD pipeline.
 
 ## :memo: Documentation
 
@@ -66,7 +63,7 @@ Comprehensive documentation is available covering our deployment pipeline and tr
 
 ## :arrows_clockwise: Feedback Loop
 
-Continuous enhancement is integral to our process. We incorporate insights from monitoring and user feedback to refine and advance our application's development
+Feedback from users and monitoring insights are used to continuously improve the application and the deployment process.
 
 ## :busts_in_silhouette: Team Collaboration
 
@@ -74,33 +71,30 @@ Our project uses Jira for sprint planning and task management, ensuring efficien
 
 ## :satellite: Live Website
 
-Please visit our fully operational live website to experience real-time interaction and testing capabilities, which serves as a demonstration of our commitment to CI/CD best practices.
-
-## Badges
-
-[![Docker](https://img.shields.io/badge/docker-container-blue)](https://www.docker.com/)
-[![Jenkins](https://img.shields.io/badge/jenkins-CI/CD-blue)](https://www.jenkins.io/)
-[![Prometheus](https://img.shields.io/badge/prometheus-monitoring-red)](https://prometheus.io/)
-[![Grafana](https://img.shields.io/badge/grafana-analytics-orange)](https://grafana.com/)
-[![Fluentd](https://img.shields.io/badge/fluentd-logging-blue)](https://www.fluentd.org/)
-[![Nginx](https://img.shields.io/badge/nginx-webserver-green)](https://www.nginx.com/)
-[![MySQL](https://img.shields.io/badge/mysql-database-lightgrey)](https://www.mysql.com/)
-[![AWS](https://img.shields.io/badge/aws-cloud-orange)](https://aws.amazon.com/)
-[![Azure](https://img.shields.io/badge/azure-cloud-blue)](https://azure.microsoft.com/)
+Check out our live website hosted on 000webhost for real-time interaction and testing: [DevOps Web App Live](https://devopspractice.000webhostapp.com/index.html)
 
 ## Contributing
 
-We encourage contributions to our project. Please see our `CONTRIBUTING.md` for guidelines on how to submit pull requests.
+We welcome contributions! Please refer to `CONTRIBUTING.md` for guidelines on how to make contributions.
 
 ## :star2: Get Involved!
 
-Want to contribute or have feedback? Here's how you can join the adventure:
+Your contributions and feedback are valuable to us. Join us by starring the repository, opening issues for discussion, and submitting pull requests with enhancements and fixes.
 
-1. **Star and Fork**: Star our repository and fork it to start your journey.
-2. **Issue and Pull Request**: Found an issue or have an enhancement? File an issue or send a pull request.
-3. **Discussion and Chat**: Join the conversation in our issues section or on our communication platforms.
+## Badges
 
-## :trophy: Achievements
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-blue)](https://github.com/features/actions)
+[![Prometheus](https://img.shields.io/badge/Prometheus-monitoring-red)](https://prometheus.io/)
+[![MySQL](https://img.shields.io/badge/MySQL-database-lightgrey)](https://www.mysql.com/)
+[![AWS](https://img.shields.io/badge/AWS-cloud-orange)](https://aws.amazon.com/)
+[![000webhost](https://img.shields.io/badge/000webhost-hosting-green)](https://www.000webhost.com/)
+[![Flask](https://img.shields.io/badge/Flask-backend-lightgrey)](https://flask.palletsprojects.com/en/2.0.x/)
+[![Python](https://img.shields.io/badge/Python-3.12.1-blue)](https://www.python.org/)
+[![HTML](https://img.shields.io/badge/HTML-frontend-orange)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS-frontend-blue)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-frontend-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Git](https://img.shields.io/badge/Git-version_control-red)](https://git-scm.com/)
 
-This project is developed with the goal of showcasing the capabilities of IST students in understanding and implementing DevOps practices.
+---
 
+This project is developed to showcase the capabilities of IST students in understanding and implementing DevOps practices.
