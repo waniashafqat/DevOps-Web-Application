@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import logging
 from prometheus_flask_exporter import PrometheusMetrics
 from prometheus_client import generate_latest
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dbuser:yourpassword@terraform-20231230183411087700000001.c348g0womtbc.ap-southeast-2.rds.amazonaws.com/mydatabase'
@@ -12,6 +13,7 @@ metrics.info('app_info', 'Application info', version='1.0.3')
 db = SQLAlchemy(app)
 
 #update code
+# spm project update
 class DevOpsData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(200), nullable=False)
